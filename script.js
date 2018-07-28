@@ -1,37 +1,24 @@
-function myFirstApp (name,age){
-	alert("привет меня зовут " + name + " моя первая программа")
-
-	function showSkills() {
-		let skills = ['html','css','photoshop'];
-		for (var i = 0; i < skills.length; i++) {
-			document.write("я владею " +  skills[i]  +  "<br>" );
-		}
-    }
-
-        showSkills();
+ let receiveBtn = document.getElementById("receive"),
+     modal = document.querySelector(".modal"),
+     close = document.querySelector(".close"),
+     nameInput = document.getElementsByClassName("contactform_name")[0],
+     text = document.getElementsByName("message")[0];
 
 
-        function checkAge () {
-         	
-         	if (age > 18){
 
-         		alert("все получится")
-         	}
-         	else {
-         		
-         		alert("должно получится)")
-         	}
-         } 
-        checkAge();
+receiveBtn.addEventListener("click", function() {
+	modal.style.display = "block";
+});
 
-        function calcPow (num) {
+close.addEventListener("click",function() {
+	modal.style.display = "none";
+})
 
-        	console.log(num * num);
+nameInput.addEventListener("input", function() {
+	text.value = "Мое имя " + nameInput.value + ". И я хочу спросить: ";
 
-        }
-        calcPow(5);
-    }
-        myFirstApp("sasha",32)
-
-      
+	if (nameInput.value == ""){
+		text.value = ""
+	}
+});
 
